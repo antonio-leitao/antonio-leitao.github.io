@@ -4,12 +4,18 @@ github = "https://github.com/antonio-leitao"
 scholar = "https://scholar.google.com/citations?user=kJStlYkAAAAJ&hl=en"
 
 [[papers]]
-title = "Time-optimal persistent homology representatives for univariate time series"
-url = "https://arxiv.org/abs/2412.08209"
-size = 30
+title = "It's all about covers: persistent homology of cover refinements"
+url = "https://arxiv.org/abs/2602.22784"
+size = 50
 published = "arXiv 2024"
 topic = "tda"
 
+[[papers]]
+title = "Time-optimal persistent homology representatives for univariate time series"
+url = "https://arxiv.org/abs/2412.08209"
+size = 25
+published = "arXiv 2024"
+topic = "tda"
 
 [[papers]]
 title = "Evidence of social learning across cultural boundaries in Sperm Whales"
