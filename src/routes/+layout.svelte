@@ -1,26 +1,40 @@
 <script>
-    import Link from "./About/Link.svelte";
     import Header from "./Header.svelte";
     import "./styles.css";
-    export const prerender = true;
+    let playbackRate=0.5;
 </script>
 
 <div class="app">
     <Header />
     <main>
         <slot />
-        <footer>
-            <p>
-                Made by <Link
-                    text={"António Leitão"}
-                    link={"https://antonio-leitao.github.io/"}
-                />
-            </p>
-        </footer>
     </main>
 </div>
+<video
+  autoplay
+  muted
+  loop
+  playsinline
+  src="/shadows.mp4"
+  class="shadow-overlay"
+  bind:playbackRate={playbackRate}
+></video>
 
 <style>
+  .shadow-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transform: rotate(0deg) scale(1);
+    /* scale up to cover gaps from rotation */
+  }
     .app {
         display: flex;
         flex-direction: column;
@@ -34,11 +48,5 @@
         width: 100%;
         margin: 0 auto;
         box-sizing: border-box;
-    }
-    footer {
-        width: 100%;
-        display: grid;
-        place-items: center;
-        font-size: 0.7rem;
     }
 </style>

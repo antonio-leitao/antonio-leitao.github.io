@@ -4,19 +4,19 @@
 </script>
 
 <header>
-	<div class="corner">
-		<a href="/">
-			<img src={avatar} alt="SvelteKit" />
-		</a>
-	</div>
+	<!-- <div class="corner"> -->
+	<!-- 	<a href="/"> -->
+	<!-- 		<img src={avatar} alt="SvelteKit" /> -->
+	<!-- 	</a> -->
+	<!-- </div> -->
 
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === '/About' ? 'page' : undefined}>
-				<a href="/About">About</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/Publications' ? 'page' : undefined}>
-				<a href="/Publications">Publications</a>
+            <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+                <a href="/">About</a>
+            </li>
+			<li aria-current={$page.url.pathname === '/Papers' ? 'page' : undefined}>
+				<a href="/Papers">Research</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/Projects' ? 'page' : undefined}>
 				<a href="/Projects">Projects</a>

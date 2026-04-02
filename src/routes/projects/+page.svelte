@@ -151,7 +151,7 @@
     .projects {
         width: 100%;
         min-height: 88vh;
-        padding: 2rem;
+        padding: 0rem 2rem;
         display: flex;
         justify-content: center;
         align-items: center;

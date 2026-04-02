@@ -1,81 +1,129 @@
-<script>
-    import avatar from "$lib/images/avatar_svg.svg";
-    import Button from "./Button.svelte";
-</script>
-
 <svelte:head>
     <title>António Leitão</title>
     <meta name="description" content="My homepage" />
 </svelte:head>
 
-<section>
-    <span class="name">
-        <picture>
-            <img src={avatar} alt="Welcome" />
-        </picture>
-    </span>
-    <h1>António Leitão <sup><span style="font-size: 0.5em">1,2</span></sup></h1>
+<script>
+	import News from './News.svelte';
+    export let data;
+</script>
 
-    <span class="welcome">
-        I'm a PhD student working on applied algebraic topology and machine
-        learning.
-    </span>
-    <span class="affiliations">
-        <div class="affiliation">
-            <sup>1</sup>Scuola Normale Superiore di Pisa, Italy
+<div class="layout">
+    <div class="content-wrapper">
+        <div class="main-col">
+            <div class="image-container">
+                <img
+                    src="/avatar_leitao.png"
+                    alt="António Leitão"
+                    class="profile-image"
+                />
+            </div>
+            <div class="timeline">
+                <div class="about">
+                    <div class="name">António Leitão</div>
+                    I'm a PhD student at the <a href="https://www.sns.it/it">Scuola Normale Superiore</a> and part of the <a href="https://team.inria.fr/datashape/">Datashape Team</a> supervised by <a href="https://www.ninaotter.com/">Nina Otter</a> and <a href="https://kdd.isti.cnr.it/people/giannotti-fosca">Fosca Giannoti</a> working on various projects from topological data analysis, climate science, explainable AI and animal communication.<br />
+                    I am a collaborator at <a href="https://www.projectceti.org/">CETI</a> and was previously part of the <a href="https://nplresearch.github.io/">NPL</a> research lab where I worked with <a href="https://lordgrilo.github.io/">Giovanni Petri</a>.
+                    <br />
+                    My main interests are on Topological Data Analysis and Machine Learning.
+                    <br />
+                    <br />
+                </div>
+            </div>
         </div>
-        <div class="affiliation">
-            <sup>2</sup>DataShape, Inria-Saclay, France
-        </div>
-    </span>
-    <span>
-        <a href="/About">
-            <Button text={"About"} />
-        </a>
-    </span>
-</section>
+        <News news={data.news}/>
+    </div>
+</div>
 
 <style>
-    section {
-        display: flex;
+    .layout {
+        width: 100%;
         min-height: 88vh;
-        flex-direction: column;
+        padding: 2rem;
+        display: flex;
         justify-content: center;
         align-items: center;
-        flex: 0.6;
+        position: relative;
     }
-    h1 {
-        width: 100%;
-        text-align: center;
-        font-family: var(--serif-font);
-        color: var(--base);
-        font-size: 2rem;
-        margin: 1.5rem 0 1.5rem 0; /* Adjusted margin */
+    a{
+        font-weight: 600;
     }
-    .name {
-        margin-top: -7rem;
+
+    .content-wrapper {
+        display: flex;
+        gap: 2rem;
+        max-width: 750px;
+        align-items: flex-start;
     }
-    .name picture img {
-        height: 7rem;
-    }
-    .welcome {
-        width: 40ch;
-        margin: 0 0 0.5rem 0;
-        text-align: center;
-        /* padding: 0 0 calc(100% * 495 / 2048) 0; */
-    }
-    a {
-        text-decoration: none;
-    }
-    a::hover {
-        text-decoration: none;
-    }
-    .affiliations {
+
+    .main-col {
         display: flex;
         flex-direction: column;
-        font-size: 0.6rem;
-        align-items: center;
-        line-height: 1.6;
-        margin-bottom: 1rem;
+        gap: 1.5rem;
+        flex: 1;
+        min-width: 400px;
+    }
+
+    .image-container {
+        display: grid;
+        place-items: start;
+    }
+
+    .profile-image {
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .about {
+        font-size: 0.9rem;
+        color: var(--hover);
+    }
+
+    .about .name {
+        font-family: "Lora", serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .timeline {
+        padding: 0;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .content-wrapper {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .main-col {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .image-container {
+            width: 100%;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+        }
+
+        .about {
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .about .name {
+            text-align: center;
+        }
+
+        .timeline {
+            width: 100%;
+        }
     }
 </style>

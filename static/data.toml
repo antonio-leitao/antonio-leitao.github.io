@@ -3,34 +3,82 @@ twitter = "https://twitter.com/leitalhao"
 github = "https://github.com/antonio-leitao"
 scholar = "https://scholar.google.com/citations?user=kJStlYkAAAAJ&hl=en"
 
+##### LATEST #####
+[[news]]
+date= "6 May 2026"
+text= "Giving an invited talk at DataShape, INRIA."
+link= ""
+
+[[news]]
+date= "26 Mar 2026"
+text= "New paper on CETI published in Scientific Reports."
+link= "https://www.nature.com/articles/s41598-025-27438-3"
+
+[[news]]
+date= "26 Feb 2026"
+text= "New preprint available: 'It's All About Covers'."
+link= "https://arxiv.org/abs/2602.22784"
+
+[[news]]
+date= "5 Dec 2025"
+text= "Delivering a seminar on TDA and Neural Networks at IST Lisbon."
+link= ""
+
+##### PAPERS #####
+
+[[papers]]
+title = "It's all about covers: persistent homology of cover refinements"
+authors = ["António Leitão"]
+index=0
+url = "https://arxiv.org/abs/2602.22784"
+venue = "arXiv"
+year= "2026"
+tag = "Persistent Homology"
+
+[[papers]]
+title = "Description of a collaborative sperm whale birth and shifts in coda vocal styles during key events"
+authors = ["Yaniv Aluma","Zethra Baron","...", "António Leitão","et al. (for the CETI Project)."]
+index=3
+url = "https://www.nature.com/articles/s41598-025-27438-3"
+venue = "Scientific Reports"
+year= "2026"
+tag = "Animal Communication"
+
 [[papers]]
 title = "Time-optimal persistent homology representatives for univariate time series"
+authors = ["António Leitão", "Nina Otter"]
+index=0
 url = "https://arxiv.org/abs/2412.08209"
-size = 30
-published = "arXiv 2024"
-topic = "tda"
-
+year= "2024"
+venue = "arXiv"
+tag = "Persistent Homology"
 
 [[papers]]
 title = "Evidence of social learning across cultural boundaries in Sperm Whales"
+authors = ["António Leitão", "Maxime Lucas","Simone Poetto", "Taylor A Hersh","Shane Gero", "David Gruber","Michael Bronstein","Giovanni Petri"]
+index=0
 url = "https://elifesciences.org/reviewed-preprints/96362"
-size = 32
-published = "eLife 2024"
-topic = "ceti"
+year = 2024
+venue = "eLife"
+tag = "Animal Communication"
 
 [[papers]]
 title = "Topological expressive power of Neural Networks"
+authors = ["Giovanni Petri", "António Leitão"]
+index=1
 url = "https://openreview.net/forum?id=I44kJPuvqPD"
-published = "NeurIPS 2021"
-size = 10
-topic = "tda"
+venue = "TDA & Beyond, NeurIPS"
+year = "2021"
+tag = "Persistent Homology"
 
 [[papers]]
 title = "On the Topological Complexity of Decision Boundaries"
+authors = ["António Leitão", "Giovanni Petri"]
+index=0
 url = "https://meetings3.sis-statistica.org/index.php/sis2021/index/pages/view/book"
-published = "SIS 2020"
-size = 8
-topic = "tda"
+venue = "SIS"
+year="2020"
+tag = "Persistent Homology"
 
 ##### PROJECTS #####
 [[projects]]
@@ -94,4 +142,5 @@ lang="rust"
 summary = "Optimized Topological Data Analysis library. Not limited to just H0 and H1."
 pip="tda"
 size=1
+
 
