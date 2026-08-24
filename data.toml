@@ -1,4 +1,7 @@
 [info]
+# shown on the About page once filled in; the row is hidden while both are empty
+email = ""
+cv = ""
 twitter = "https://twitter.com/leitalhao"
 github = "https://github.com/antonio-leitao"
 scholar = "https://scholar.google.com/citations?user=kJStlYkAAAAJ&hl=en"
@@ -82,12 +85,48 @@ tag = "Persistent Homology"
 
 ##### PROJECTS #####
 [[projects]]
-name = "Bib"
-url = "https://github.com/antonio-leitao/bib"
-icon = "bib"
+name = "PaperStack"
+url = "https://antonio-leitao.github.io/paperstack"
+icon = "paperstack"
 lang="rust"
-summary = "CLI tool for organizing, searching and managing bibliography."
+summary = "Desktop app for organizing the bibliography of research projects."
 size=0.65
+
+[[projects]]
+name = "TDA"
+url = "https://github.com/antonio-leitao/topological-data-analysis"
+icon = "tda"
+lang="rust"
+summary = "Optimized Topological Data Analysis library. Not limited to just H0 and H1."
+pip="tda"
+size=1
+
+[[projects]]
+name = "DBSampler"
+url = "https://github.com/antonio-leitao/dbsampler"
+icon = "dbsampler"
+lang="python"
+summary = "Python framework for sampling the decision boundary of classification problems."
+pip="dbsampler"
+size=1
+
+
+[[projects]]
+name = "VLMC"
+url = "https://github.com/antonio-leitao/vlmc"
+icon = "vlmc"
+lang = "rust"
+summary = "Fast and efficient Rust implementation of Variable Length Markov Chains."
+pip="vlmc"
+size=0.8
+
+[[projects]]
+name = "Press"
+url = "https://github.com/antonio-leitao/printing-press"
+icon = "press"
+lang = "rust"
+summary = "PDF viewer that compiles directly from source code."
+size=0.8
 
 [[projects]]
 name = "Jet"
@@ -99,24 +138,6 @@ pip="jet-test"
 size=0.7
 
 [[projects]]
-name = "Press"
-url = "https://github.com/antonio-leitao/printing-press"
-icon = "press"
-lang = "rust"
-summary = "Compile LaTeX projects from templates defined on your computer."
-size=0.8
-
-[[projects]]
-name = "VLMC"
-url = "https://github.com/antonio-leitao/vlmc"
-icon = "vlmc"
-lang = "rust"
-summary = "Fast and efficient Rust implementation of Variable Length Markov Chains."
-pip="vlmc"
-size=0.8
-
-
-[[projects]]
 name = "Tiny Docs"
 url = "https://github.com/antonio-leitao/tinydocs"
 icon = "tinydocs"
@@ -125,22 +146,5 @@ summary = "Auto doc of python directories that outputs a single .md file."
 pip="tinydocs"
 size=0.3
 
-[[projects]]
-name = "DBSampler"
-url = "https://github.com/antonio-leitao/dbsampler"
-icon = "dbsampler"
-lang="python"
-summary = "Python framework for sampling the decision boundary of classification problems."
-pip="dbsampler"
-size=1
-
-[[projects]]
-name = "TDA"
-url = "https://github.com/antonio-leitao/topological-data-analysis"
-icon = "tda"
-lang="rust"
-summary = "Optimized Topological Data Analysis library. Not limited to just H0 and H1."
-pip="tda"
-size=1
 
 
