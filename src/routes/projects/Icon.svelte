@@ -5,8 +5,17 @@
   export let width = "1rem";
   export let height = "1rem";
   export let opacity = 1;
+  /** Use the artwork's own viewBox so it fills the given box. Off by default:
+      the packages rely on the square box_x/box_y framing. */
+  export let fit = false;
 
   let icons = [
+    {
+      box_x: 408.3,
+      box_y: 408.3,
+      name: "paperstack",
+      svg: `<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="ps-solid-title" shape-rendering="geometricPrecision" viewBox="0 0 1000 1000"><title>PaperStack mark, one ink</title><defs><mask id="a" width="1000" height="1000" x="0" y="0" maskUnits="userSpaceOnUse"><path fill="#fff" d="M0 0h1000v1000H0z"/><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"><path d="m400 275 180 44 138-69m-318 25 145-83c56 12 116 19 173-9m-318 92v475l180 50 138-69V250m-138 69v481"/><path d="M718 183c-28 51-83 100-138 136m71-114c-3 39-30 79-71 114m138-69-42-10"/><g stroke-width="12"><path d="m425 381 59 15m157-20 51-25M442 522l55 14m125-43 52-25M516 628l64 18 30-15"/></g><g fill="#000" stroke-width="34"><path d="m120 430 170 45v335l-170-50ZM290 475l130-65v340l-130 60Z"/><path d="m120 430 130-65 170 45-130 65Z"/><path d="m120 430 140-75c50 15 105 22 160-5-27 51-79 95-130 125Z"/></g><g fill="#000" stroke-width="34"><path d="m620 560 145 40v235l-145-40ZM765 600l115-55v240l-115 50Z"/><path d="m620 560 115-55 145 40-115 55Z"/><path d="m620 560 120-60c45 13 94 15 140-10-25 47-68 84-115 110Z"/></g></g></mask><mask id="b" width="1000" height="1000" x="0" y="0" maskUnits="userSpaceOnUse"><path fill="#fff" d="M0 0h1000v1000H0z"/><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"><path d="m120 430 170 45 130-65m-300 20 140-75c50 15 105 22 160-5m-300 80v330l170 50 130-60V410m-130 65v335"/><path d="M420 350c-27 51-79 95-130 125m69-104c-4 34-29 72-69 104m130-65-36-10"/><g stroke-width="12"><path d="m143 551 58 15m132-18 51-25M177 663l54 14M246 720l44 13 32-15"/></g><g fill="#000" stroke-width="34"><path d="m620 560 145 40v235l-145-40ZM765 600l115-55v240l-115 50Z"/><path d="m620 560 115-55 145 40-115 55Z"/><path d="m620 560 120-60c45 13 94 15 140-10-25 47-68 84-115 110Z"/></g></g></mask><mask id="c" width="1000" height="1000" x="0" y="0" maskUnits="userSpaceOnUse"><path fill="#fff" d="M0 0h1000v1000H0z"/><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"><path d="m620 560 145 40 115-55m-260 15 120-60c45 13 94 15 140-10m-260 70v235l145 40 115-50V545m-115 55v235"/><path d="M880 490c-25 47-68 84-115 110m64-92c-4 30-27 61-64 92m115-55-33-9"/><g stroke-width="12"><path d="m645 688 53 14m110-27 43-21M654 758l49 14M728 743l37 11 27-13"/></g></g></mask></defs><g fill="currentColor" aria-label="Tall center paper stack" mask="url(#a)"><path d="m400 275 180 44v481l-180-50ZM580 319l138-69v481l-138 69Z"/><path d="m400 275 138-69 180 44-138 69Z"/><path d="m400 275 145-83c56 12 116 19 173-9-28 51-83 100-138 136Z"/></g><g fill="currentColor" aria-label="Medium left paper stack" mask="url(#b)"><path d="m120 430 170 45v335l-170-50ZM290 475l130-65v340l-130 60Z"/><path d="m120 430 130-65 170 45-130 65Z"/><path d="m120 430 140-75c50 15 105 22 160-5-27 51-79 95-130 125Z"/></g><g fill="currentColor" aria-label="Short right paper stack" mask="url(#c)"><path d="m620 560 145 40v235l-145-40ZM765 600l115-55v240l-115 50Z"/><path d="m620 560 115-55 145 40-115 55Z"/><path d="m620 560 120-60c45 13 94 15 140-10-25 47-68 84-115 110Z"/></g></svg>`,
+    },
     {
       box_x: 408.3,
       box_y: 408.3,
@@ -123,13 +132,17 @@
 </svg>`,
     },
   ];
-  let displayIcon = icons.find((e) => e.name === name);
+  $: displayIcon = icons.find((e) => e.name === name);
+  $: viewBox = fit
+    ? (displayIcon.svg.match(/viewBox="([^"]+)"/)?.[1] ??
+      `0 0 ${displayIcon.box_x} ${displayIcon.box_y}`)
+    : `0 0 ${displayIcon.box_x} ${displayIcon.box_y}`;
 </script>
 
 <svg
   style="fill:{color};opacity:{opacity};margin:{margin};"
   {width}
   {height}
-  viewBox="0 0 {displayIcon.box_x} {displayIcon.box_y}"
+  {viewBox}
   >{@html displayIcon.svg}</svg
 >

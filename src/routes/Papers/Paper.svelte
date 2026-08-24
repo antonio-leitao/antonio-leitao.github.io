@@ -11,19 +11,39 @@
   export let highlightAuthor = undefined;
 </script>
 
-  <a class="title" href={url}>{title}</a>
+  <span class="year">{year}</span>
 
-  <p class="meta">
-    {#each authors as author, i}{#if i > 0}{', '}{/if}<span class:highlighted={i === highlightAuthor}>{author}</span>{/each}
-    - {venue}, {year}
-  </p>
+  <div class="body">
+    <a class="title" href={url}>{title}</a>
+
+    <p class="meta">
+      {#each authors as author, i}{#if i > 0}{', '}{/if}<span class:highlighted={i === highlightAuthor}>{author}</span>{/each}
+      - {venue}
+    </p>
+  </div>
 
 <style>
+
+  .year {
+    text-align: right;
+    padding-right: 16px;
+    font-family: "Lora", serif;
+    font-weight: 400;
+    font-size: 0.84rem;
+    line-height: 1.3;
+    color: #a3abaf;
+  }
+
+  /* the entry's second grid column; 23.5px clears the hairline and lines the
+     title up with the section heads above */
+  .body {
+    padding-left: 23.5px;
+  }
 
   .title {
     /* font-family: "Lora", serif; */
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: 0.94rem;
     text-decoration: none;
     line-height: 1.2;
     color: var(--hover);
@@ -36,15 +56,14 @@
   }
 
   .meta {
-    margin: 0.25rem 0 0.4rem;
-    font-size: 0.78rem;
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
     /* color:var(--clr-blue); */
     line-height: 1.4;
   }
 
   .highlighted {
-    text-decoration: underline;
-    /* font-weight: 600; */
+    color: var(--hover);
   }
 
 

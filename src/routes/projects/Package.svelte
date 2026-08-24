@@ -15,6 +15,8 @@
     export let icon = "caravela";
     export let size = 4;
     export let shadow = false;
+    /** Opened from outside — the pile and the manifest row share one hover state. */
+    export let open = false;
     import Icon from "./Icon.svelte";
 
     function getNormal(mean = 0, standardDeviation = 1) {
@@ -48,7 +50,7 @@
 </script>
 
 <div class="package">
-    <div id="logo" style="--size: {lerpSize(size)}rem">
+    <div id="logo" class:open style="--size: {lerpSize(size)}rem">
         <div
             class="box"
             style="--random:{random_bimodal(6, 20)}; --normal:{getNormal(
@@ -188,33 +190,33 @@
         transform: translateX(var(--size)) translateY(calc(var(--size) * -0.25))
             rotateX(90deg) rotateY(180deg);
     }
-    .package #logo:not(:hover) .box .flap.left,
-    body #logo:not(:hover) .box .flap.right {
+    .package #logo:not(.open) .box .flap.left,
+    body #logo:not(.open) .box .flap.right {
         transition-delay: 0.2s;
     }
-    .package #logo:hover .box {
+    .package #logo.open .box {
         transform: translateZ(-25rem) rotatex(-20deg) rotatey(-30deg);
     }
-    .package #logo:hover .box .flap {
+    .package #logo.open .box .flap {
         background: var(--box-inner-mid);
     }
-    .package #logo:hover .box .flap.front,
-    body #logo:hover .box .flap.back {
+    .package #logo.open .box .flap.front,
+    body #logo.open .box .flap.back {
         transition-delay: 0.2s;
     }
-    .package #logo:hover .box .flap.front {
+    .package #logo.open .box .flap.front {
         transform: translateY(calc(var(--size) * -0.25)) rotateX(-120deg)
             translateZ(calc(var(--size) * 0.499));
     }
-    .package #logo:hover .box .flap.back {
+    .package #logo.open .box .flap.back {
         transform: translateY(calc(var(--size) * -0.25)) rotateX(120deg)
             translateZ(calc(var(--size) * -0.499));
     }
-    .package #logo:hover .box .flap.left {
+    .package #logo.open .box .flap.left {
         transform: translateY(calc(var(--size) * -0.25)) rotateX(90deg)
             rotateY(-210deg);
     }
-    .package #logo:hover .box .flap.right {
+    .package #logo.open .box .flap.right {
         transform: translateX(var(--size)) translateY(calc(var(--size) * -0.25))
             rotateX(90deg) rotateY(380deg);
     }

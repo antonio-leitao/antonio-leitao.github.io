@@ -26,9 +26,10 @@
 <section class="research">
     <div class="container">
         <div class="header">
-            <div class="about">
-                Here's a list of all my submitted research papers.<br />
-            </div>
+            <h1>Research</h1>
+            <p>
+                I'm interested in porting the concepts of topology into data analysis and machine learning. Developing the theory and the computational algorithms for high performance implementations.
+            </p>
         </div>
 
 
@@ -72,9 +73,12 @@
 
 <style>
 .research {
+    /* width of the year rail; the mobile rule below narrows it */
+    --rail: 53px;
     width: 100%;
     min-height: 88vh;
-    padding: 3rem 2rem;
+    /* shared with Projects so both headers start at the same height */
+    padding: 3.5rem 2rem 3rem;
 }
 
 .container {
@@ -83,52 +87,106 @@
 }
 
 .header {
-    margin-bottom: 1.5rem;
+    margin: 0 0 2.5rem;
 }
 
-.about {
-    font-size: 1.3rem;
-    font-weight: 200;
-    text-align: center;
-    margin: 3rem 0rem;
+.header h1 {
+    font-family: "Lora", serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--hover);
+    margin-bottom: 0.75rem;
+}
+
+.header p {
+    font-size: 0.9rem;
+    line-height: 1.62;
+    color: var(--muted);
+    max-width: 48ch;
+    text-wrap: pretty;
 }
 
 /* ── Topic-grouped timeline ── */
 .timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
+    gap: 2.25rem;
 }
 
 .year-group {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+}
+
+.tag-pill {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.tag-pill::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e0e2e3;
 }
 
 .tag-pill span {
-    display: inline-block;
-    font-size: 0.8rem;
-    color: var(--subtext);
-    padding: 0.15rem 0rem;
+    font-family: "Lora", serif;
+    font-weight: 400;
+    font-size: 1.06rem;
+    line-height: 1.3;
+    color: var(--hover);
+    padding: 0;
 }
 
 .year-papers {
     flex: 1;
-    border-left: 1.5px solid var(--highlight);
-    padding-left: 1.5rem;
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1.15rem;
+}
+
+/* the hairline is drawn rather than bordered, so it stays unbroken while the
+   entries below are a grid */
+.year-papers::before {
+    content: "";
+    position: absolute;
+    left: var(--rail);
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--highlight);
+}
+
+/* year and title are grid siblings so the browser aligns their baselines,
+   whatever the two fonts' metrics happen to be */
+.paper-entry {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    align-items: baseline;
 }
 
 @media (max-width: 600px) {
     .research {
-        padding: 2rem 1.25rem;
+        --rail: 40px;
+        padding: 2.5rem 1.25rem 2rem;
     }
 
     .container {
         max-width: 100%;
+    }
+
+    .header {
+        margin: 0 0 2rem;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
     }
 }
 </style>

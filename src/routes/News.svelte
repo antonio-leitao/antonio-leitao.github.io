@@ -16,13 +16,27 @@
 			</div>
 		{/each}
 	</div>
+	<a class="more" href="/Papers">
+		<span>All publications</span>
+		<svg
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<path d="M5 12h14" />
+			<path d="m13 6 6 6-6 6" />
+		</svg>
+	</a>
 </aside>
 
 <style>
 	.news {
-		padding-left: 1.5rem;
-		align-self: stretch;
-		padding-top: 0.25rem;
+		width: 230px;
+		flex-shrink: 0;
+		padding-top: 0.125rem;
 	}
 
 	.news-header {
@@ -82,20 +96,35 @@
         color:var(--clr-blue);
 	}
 
+	.more {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		margin-top: 1.25rem;
+		margin-left: 1rem;
+		font-size: 0.75rem;
+		color: var(--subdued);
+		text-decoration: none;
+	}
+
+	.more span {
+		border-bottom: 1px solid #cdd2d4;
+	}
+
+	.more svg {
+		width: 11px;
+		height: 11px;
+	}
+
+	.more:hover {
+		color: var(--clr-blue);
+		text-decoration: none;
+	}
+
 	@media (max-width: 768px) {
 		.news {
-			padding-left: 0;
-			padding-top: 1.5rem;
-			margin-top: 0.5rem;
-		}
-
-		.news-list {
-			border-left: none;
-			padding-left: 0;
-		}
-
-		.news-item::before {
-			display: none;
+			width: 100%;
+			padding-top: 0.5rem;
 		}
 	}
 </style>

@@ -3,6 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
+		"stats": "node scripts/downloads.mjs",
+		"prebuild": "node scripts/downloads.mjs",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
