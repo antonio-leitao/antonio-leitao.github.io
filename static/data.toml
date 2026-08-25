@@ -122,7 +122,7 @@ size=0.8
 
 [[projects]]
 name = "Press"
-url = "https://github.com/antonio-leitao/printing-press"
+url = "https://antonio-leitao.github.io/printing-press"
 icon = "press"
 lang = "rust"
 summary = "PDF viewer that compiles directly from source code."
