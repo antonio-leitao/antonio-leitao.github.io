@@ -121,7 +121,7 @@ pip="vlmc"
 size=0.8
 
 [[projects]]
-name = "Press"
+name = "Printing Press"
 url = "https://antonio-leitao.github.io/printing-press"
 icon = "press"
 lang = "rust"
